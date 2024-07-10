@@ -123,12 +123,15 @@ class CarFragment : Fragment() {
         noInternetText.isVisible  = true
     }
 
-    private fun setupList(lista: List<Carro>) {
+    fun setupList(lista: List<Carro>) {
           val carroAdapter = CarAdapter(lista)
         //listaCarros.layoutManager= LinearLayoutManager(this)
         listaCarros.apply {
             isVisible  = true
             adapter = carroAdapter
+        }
+        carroAdapter.carItemLister = { carro ->
+
         }
     }
     fun setupListeners(){
@@ -225,7 +228,8 @@ class CarFragment : Fragment() {
                         bateria = bateria,
                         potencia = potencia,
                         recarga = recarga,
-                        urlPhoto = urlPhoto
+                        urlPhoto = urlPhoto,
+                        isFavorite = false
                     )
                     carrosArray.add(model)
 

@@ -1,16 +1,15 @@
 package com.example.carroeletricoapp.ui
 
-import android.os.AsyncTask
+
+import android.content.Context
 import android.os.Bundle
-import android.provider.ContactsContract.CommonDataKinds.Website.URL
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.carroeletricoapp.R
-import java.net.HttpURLConnection
-import java.net.URL
+
 
 class CalcularAutonomiaActivity : AppCompatActivity() {
 
@@ -25,7 +24,14 @@ class CalcularAutonomiaActivity : AppCompatActivity() {
         setContentView(R.layout.activity_calcular_autonomia)
         setupViews()
         setupListeners()
+        setupCacheResult()
     }
+
+    private fun setupCacheResult() {
+        val valorCalculado = getSheredPref()
+        resultado.text = valorCalculado.toString()
+    }
+
     fun setupViews(){
         preco = findViewById(R.id.et_preco_km)
         btnCalcular = findViewById(R.id.btn_calcular2)
@@ -49,7 +55,21 @@ class CalcularAutonomiaActivity : AppCompatActivity() {
 
         val result = preco/km
         resultado.text = result.toString()
+        saveSharedPref(result)
 
+    }
+
+    fun saveSharedPref(resultado : Float){
+        val sharedPref = getPreferences(Context.MODE_PRIVATE) ?: return
+        with(sharedPref.edit()) {
+            putFloat(getString(R.string.saved_calc), resultado)
+            apply()
+        }
+    }
+
+    fun getSheredPref() : Float {
+        val sharedPref = getPreferences(Context.MODE_PRIVATE)
+        return sharedPref.getFloat(getString(R.string.saved_calc), 0.0f)
     }
 
 }

@@ -11,7 +11,8 @@ object CarFactory {
             bateria = "300 kWh",
             potencia = "200cv",
             recarga = "30 min",
-            urlPhoto = "www.google.com.br"
+            urlPhoto = "https://dnakalfa.github.io/api-cars/image/eletric_car.png",
+            isFavorite = false,
         ),
         Carro(
             id = 2,
@@ -19,7 +20,8 @@ object CarFactory {
             bateria = "320 kWh",
             potencia = "200cv",
             recarga = "30 min",
-            urlPhoto = "www.google.com.br"
+            urlPhoto = "https://dnakalfa.github.io/api-cars/image/tesla-model-3-red.png",
+            isFavorite = false,
         ),
         Carro(
             id = 3,
@@ -27,7 +29,8 @@ object CarFactory {
             bateria = "320 kWh",
             potencia = "200cv",
             recarga = "30 min",
-            urlPhoto = "www.google.com.br"
+            urlPhoto = "https://dnakalfa.github.io/api-cars/image/tesla-model-x-azul.png",
+            isFavorite = false,
         ),
         Carro(
             id = 4,
@@ -35,7 +38,8 @@ object CarFactory {
             bateria = "320 kWh",
             potencia = "200cv",
             recarga = "30 min",
-            urlPhoto = "www.google.com.br"
+            urlPhoto = "dnakalfa.github.io/api-cars/image/tesla-modeling-pickup.png",
+            isFavorite = false,
         ),
         Carro(
             id = 5,
@@ -43,7 +47,8 @@ object CarFactory {
             bateria = "320 kWh",
             potencia = "200cv",
             recarga = "30 min",
-            urlPhoto = "www.google.com.br"
+            urlPhoto = "dnakalfa.github.io/api-cars/image/tesla-modeling-pickup.png",
+            isFavorite = false,
         )
     )
 
