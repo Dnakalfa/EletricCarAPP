@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">CarroEletricoApp</string>
+    <string name="title">Carros Eletricos</string>
+    <string name="carros">Carros</string>
+    <string name="favoritos">Favoritos</string>
+    <string name="preco">Preço</string>
+    <string name="bateria">Bateria</string>
+    <string name="potencia">Potência</string>
+    <string name="recarga">Recarga</string>
+    <string name="preco_km">Preço kilometro/hora</string>
+    <string name="km_percorrido">Km Percorrido</string>
+    <string name="calcular">Calcular</string>
+    <string name="calcular_altonomia">Calcular Altonomia</string>
+    <string name="no_wifi">Internet não disponivel</string>
+    <string name="response_error">Algo deu errado, tente novamente!</string>
+</resources>
