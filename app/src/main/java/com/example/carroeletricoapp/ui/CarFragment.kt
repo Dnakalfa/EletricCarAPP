@@ -19,22 +19,18 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.carroeletricoapp.R
-import com.example.carroeletricoapp.data.CarFactory
 import com.example.carroeletricoapp.data.CarsAPI
+import com.example.carroeletricoapp.data.local.CarRepository
 import com.example.carroeletricoapp.domain.Carro
 import com.example.carroeletricoapp.ui.adapter.CarAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import org.json.JSONArray
-import org.json.JSONObject
 import org.json.JSONTokener
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.io.BufferedReader
-import java.io.InputStream
-import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
 
@@ -125,13 +121,14 @@ class CarFragment : Fragment() {
 
     fun setupList(lista: List<Carro>) {
           val carroAdapter = CarAdapter(lista)
-        //listaCarros.layoutManager= LinearLayoutManager(this)
-        listaCarros.apply {
+          listaCarros.apply {
             isVisible  = true
             adapter = carroAdapter
         }
         carroAdapter.carItemLister = { carro ->
-
+            //val isSaved = CarRepository(requireContext()).save(carro)
+            val isSaved = CarRepository(requireContext()).saveIfNotExist(carro)
+            //val isSaved = CarRepository(requireContext()).findCarById(carro.id)
         }
     }
     fun setupListeners(){
@@ -244,4 +241,5 @@ class CarFragment : Fragment() {
             }
         }
     }
+
 }
