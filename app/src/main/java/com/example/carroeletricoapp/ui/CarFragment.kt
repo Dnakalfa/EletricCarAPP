@@ -35,7 +35,7 @@ import java.net.HttpURLConnection
 import java.net.URL
 
 class CarFragment : Fragment() {
-    lateinit var fabCalcular : FloatingActionButton
+    //lateinit var fabCalcular : FloatingActionButton
     lateinit var listaCarros: RecyclerView
     lateinit var progress: ProgressBar
     lateinit var noInternetImage : ImageView
@@ -57,7 +57,7 @@ class CarFragment : Fragment() {
 
         setupRetrofit()
         setupView(view)
-        setupListeners()
+        //setupListeners()
     }
 
     override fun onResume() {
@@ -104,7 +104,7 @@ class CarFragment : Fragment() {
     }
     fun setupView(view: View){
         view.apply {
-            fabCalcular = findViewById(R.id.fab_calcular)
+           // fabCalcular = findViewById(R.id.fab_calcular)
             listaCarros = findViewById(R.id.rv_lista_carros)
             progress = findViewById(R.id.pb_loader)
             noInternetImage = findViewById(R.id.iv_empty_state)
@@ -131,11 +131,11 @@ class CarFragment : Fragment() {
             //val isSaved = CarRepository(requireContext()).findCarById(carro.id)
         }
     }
-    fun setupListeners(){
+    /*fun setupListeners(){
         fabCalcular.setOnClickListener {
             startActivity(Intent(context, CalcularAutonomiaActivity::class.java))
         }
-    }
+    }*/
     fun callService() {
         val urlBase = "https://dnakalfa.github.io/api-cars/cars.json"
         progress.isVisible = true //-->> descobrir porque não esta carregando

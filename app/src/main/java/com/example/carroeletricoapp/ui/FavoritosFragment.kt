@@ -14,7 +14,7 @@ import com.example.carroeletricoapp.ui.adapter.CarAdapter
 
 class FavoritosFragment : Fragment (){
 
-    lateinit var listaCarrosFavoritos : RecyclerView
+    private lateinit var listaCarrosFavoritos : RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,7 +36,7 @@ class FavoritosFragment : Fragment (){
         return carList
     }
 
-    fun setupView(view: View){
+    private fun setupView(view: View){
         view.apply {
 
             listaCarrosFavoritos = findViewById(R.id.rv_lista_carros_favoritos)
@@ -44,9 +44,9 @@ class FavoritosFragment : Fragment (){
         }
     }
 
-    fun setupList() {
+    private fun setupList() {
         val cars = getCarsOnLocalDb()
-        val carroAdapter = CarAdapter(cars)
+        val carroAdapter = CarAdapter(cars, isFavoriteScreen = true)
         listaCarrosFavoritos.apply {
             isVisible  = true
             adapter = carroAdapter

@@ -10,7 +10,7 @@
     <string name="preco_km">Preço kilometro/hora</string>
     <string name="km_percorrido">Km Percorrido</string>
     <string name="calcular">Calcular</string>
-    <string name="calcular_altonomia">Calcular Altonomia</string>
+    <string name="calcular_autonomia">Calcular Autonomia</string>
     <string name="no_wifi">Internet não disponivel</string>
     <string name="response_error">Algo deu errado, tente novamente!</string>
     <string name="saved_calc">saved_calc</string>

@@ -9,14 +9,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.carroeletricoapp.R
 import com.example.carroeletricoapp.domain.Carro
 
-class CarAdapter(private val carros: List<Carro>) : RecyclerView.Adapter<CarAdapter.ViewHolder>(){
+class CarAdapter(private val carros: List<Carro>, private val isFavoriteScreen : Boolean = false) :
+    RecyclerView.Adapter<CarAdapter.ViewHolder>(){
 
     var carItemLister : (Carro) -> Unit = {}
 
     //cria uma nova view
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.carro_item, parent, false)
-
         return ViewHolder(view)
     }
     //Pega conteudo e troca pela infor de itens da lista
@@ -25,13 +25,15 @@ class CarAdapter(private val carros: List<Carro>) : RecyclerView.Adapter<CarAdap
         holder.bateria.text = carros[position].bateria
         holder.potencia.text = carros[position].potencia
         holder.recarga.text = carros[position].recarga
+        if (isFavoriteScreen){
+            holder.favorito.setImageResource(R.drawable.ic_star_selected)
+        }
         holder.favorito.setOnClickListener{
             val carro = carros[position]
             carItemLister(carro)
             setupFavorite(carro, holder)
         }
-
-    }
+   }
 
     private fun setupFavorite(
         carro: Carro,
